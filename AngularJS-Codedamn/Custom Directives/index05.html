@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    
+</head>
+<body ng-app="mainApp" ng-controller="mainCtrl">
+    Isolated scope properties
+    <p>First variable {{name}}</p>
+    <p>Second variable {{age}}</p>
+    <button ng-click="alertTheName()">Alert from Controller</button>
+   <div class="" my-first-directive name="{{name}}" age="age" func="alertTheName()"></div>
+
+    <script>
+        var app = angular.module('mainApp',[]);
+        app.directive('myFirstDirective', function(){
+            return {
+            restrict: 'EA',
+            scope: {
+            name: '@',
+            age: '=',
+            func : '&'
+            },  
+            template: `Value of name in directive is  {{name}} <br>
+                    <input type="text" ng-model="name" />
+                    Hello {{name}}<br/>
+                    Value of age in directive is  {{age}} <br>
+                    <input type="text" ng-model="age" />
+                    Hello {{age}} <br>
+                    <button ng-click="func()">Alert from Directive</button> `,
+            };
+        })
+        app.controller('mainCtrl', function($scope){
+            $scope.name = "codedamn";
+            $scope.age = 100;
+            $scope.alertTheName = function(){
+                alert($scope.name);
+            }
+        })
+        /*
+            @    => text bind 
+            =    => two way bind
+            &    => one way bind
+        */
+    </script>
+</body>
+</html>

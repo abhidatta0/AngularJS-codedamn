@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    
+</head>
+<body ng-app="mainApp" ng-controller="mainCtrl">
+   <div class="" my-first-directive></div>
+   <div class="" my-first-directive></div>
+   <div class="" my-first-directive></div>
+
+    <script>
+        var app = angular.module('mainApp',[]);
+        app.directive('myFirstDirective', function(){
+            linkFunction = function(scope,elem,attrs){
+                scope.name="Hello World";
+                scope.changeName = function(n){
+                    scope.name = n;
+                }
+            }
+            return {
+              
+              template: '<p ng-click="changeName(\'hey there\')">Current Text : {{name}}</p>',
+              restrict: 'EA',
+              link: linkFunction
+            };
+        })
+        app.controller('mainCtrl', function(){
+            
+        })
+    </script>
+</body>
+</html>

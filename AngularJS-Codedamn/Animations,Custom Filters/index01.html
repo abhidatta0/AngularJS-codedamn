@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Animations</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-animate.min.js"></script>
+    <style>
+        .animate.ng-enter, .animate.ng-leave{
+          transition: 500ms linear all;
+        }
+        .animate.ng-leave.ng-leave-active{
+            opacity: 0;
+        }
+        .animate.ng-enter.ng-leave-active{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body ng-app="mainApp" ng-controller="MainCtrl">
+    <p>Search: <input type="text" ng-model="searchBox"></p>
+
+    <ul>
+        <li class="animate" ng-repeat="food in foods| filter:searchBox">{{food}}</li>
+    </ul>
+
+    <script>
+        var app = angular.module('mainApp',['ngAnimate']);
+        app.controller('MainCtrl',function($scope){
+            $scope.foods = ['Pizza','burger','Extra Cheesy Pizza','Potato Chips'];
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo app using AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    
+</head>
+<body ng-app="mainApp" ng-controller="mainCtrl">
+   <div class="" my-first-directive></div>
+
+    <script>
+        var app = angular.module('mainApp',[]);
+        app.directive('myFirstDirective', function(){
+            linkFunction = function(scope,elem,attrs){
+                elem.bind('click', function(){
+                    alert(elem[0].innerHTML);
+                })
+            }
+            return {
+              
+              template: '<p>Hello World</p>',
+              restrict: 'EA',
+              link: linkFunction
+            };
+        })
+        app.controller('mainCtrl', function(){
+            
+        })
+    </script>
+</body>
+</html>

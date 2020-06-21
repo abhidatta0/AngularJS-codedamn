@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular JS | Services</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body ng-app="mainApp" ng-controller="mainCtrl">
+    <button ng-click="generateRandom()" >Generate</button>
+    <br>{{randomNumber}}
+    <script>
+      var app = angular.module("mainApp",[]);
+      app.service("random", function(){
+          var num = Math.floor(Math.random()*10);
+          this.generate = function(){
+            return num;
+          }
+      })
+      app.controller('mainCtrl', function($scope, random){
+        $scope.generateRandom =function(){
+          $scope.randomNumber =  random.generate();
+        } 
+      })
+    </script>
+</body>
+</html>

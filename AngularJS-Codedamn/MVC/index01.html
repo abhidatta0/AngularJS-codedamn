@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myLanguageApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS | Introduction to Controllers</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="languages">
+       Select your favourite  language:
+       <button ng-click="change('PHP')">PHP</button>
+       <button ng-click="change('Javascript')">Javascript</button>
+       <button ng-click="change('C++')">C++</button>
+       <button ng-click="change('Java')">Java</button>
+
+       <p>You have selected {{myFavLanguage}}</p>
+    </div>
+    <script>
+        var application = angular.module('myLanguageApp',[]);
+        application.controller('languages',function($scope){
+          $scope.myFavLanguage = 'None';
+          
+          $scope.change = function(language){
+           $scope.myFavLanguage = language;
+          }
+
+        });
+    </script>
+</body>
+</html>

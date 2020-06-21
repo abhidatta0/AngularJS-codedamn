@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS | Introduction to Filters</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body>
+    Your name: <input type="text" ng-model="name" /> <br/>
+    Welcome {{ name|uppercase}} <br>
+
+    Currency: <input type="number" ng-model="price" /> <br/>
+    Welcome {{ price|currency:'Rs.':0}} <br>
+
+    Number: <input type="number" ng-model="num" /> <br/>
+    Welcome {{ num|number:5}}
+</body>
+</html>

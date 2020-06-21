@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS | Introduction to Filters</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="mainCtrl">
+    <button ng-click="toggle()">Toggle Message</button>
+    <br>
+    <div ng-show="show == 'msg1'">This is my message 1</div>
+    <div ng-show="show == 'msg2'">This is my message 2</div>
+
+    <script>
+        var app = angular.module("myApp",[]);
+        app.controller('mainCtrl', function($scope){
+          $scope.show = 'msg1'
+          $scope.toggle = function(){
+            $scope.show = $scope.show == 'msg1' ? 'msg2' : 'msg1';
+          }
+        })
+    </script>
+</body>
+</html>

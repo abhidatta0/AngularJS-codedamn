@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular JS | $digest()</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body ng-app="mainApp" ng-controller="mainCtrl">
+    {{myRandomNumber}}
+    <br>
+    <button id="btn">New Random Number</button>
+
+    <script>
+      var app = angular.module("mainApp",[]);
+      app.controller('mainCtrl', function($scope){
+        $scope.myRandomNumber = Math.random();
+        document.getElementById("btn").addEventListener('click', function(){
+          console.log("button clicked");
+          $scope.myRandomNumber = Math.random();
+          $scope.$digest();
+        });
+      })
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+    "records": [
+        {
+            "name": "Abhirup",
+            "age": 23,
+            "Fav_color":"orange"
+        },
+        {
+            "name": "Jai",
+            "age": 45,
+            "Fav_color":"black"
+        },
+        {
+            "name": "Alex",
+            "age": 27,
+            "Fav_color":"red"
+        },
+        {
+            "name": "Anonymous",
+            "age": "???",
+            "Fav_color":"green"
+        },
+        {
+            "name": "Rahul",
+            "age": "18",
+            "Fav_color":"green"
+        }
+    ]
+}

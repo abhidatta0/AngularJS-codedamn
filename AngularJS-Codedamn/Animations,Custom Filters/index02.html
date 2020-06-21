@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Filters</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    
+</head>
+<body ng-app="mainApp" ng-controller="MainCtrl">
+    <!--To convert a number to another base-->
+    Number: <input type="text" ng-model="number"><br><br>
+    Base: <input type="text" ng-model="base"> <br><br>
+    Your number {{number}} in base {{base}} is {{number | baseConvertor: base }} 
+
+    <script>
+        var app = angular.module('mainApp',[]);
+        app.controller('MainCtrl', function($scope){
+
+        })
+        app.filter('baseConvertor', function(){
+            var something = function(input,base){
+                var parsed = parseInt(input,10);
+                var base = parseInt(base,10);
+                if(isNaN(parsed) || isNaN(base) || base <= 1 || base >=37) return "Error!!Invalid Base";
+                return parsed.toString(base);
+            }
+            return something;
+        })
+    </script>
+</body>
+</html>

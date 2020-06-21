@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo app using AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="app.js"></script>
+    <style>
+    span.done-true {
+        color: gray;
+        font-style: italic;
+        text-decoration: line-through;
+    }
+    span[contenteditable="true"]{
+        background: grey;
+        padding: 3px;
+    }
+    </style>
+</head>
+<body ng-app="mainApp" ng-controller="mainCtrl">
+    <h1 style="text-align:center">Add A  Task</h1>
+    <input ng-model="task" ng-keyup="searchEnter()" type="text" style="display:block;margin:0 auto; padding: 5px; font-size: 15px;"/>
+    <div id="tasksToShow">
+        <ul>
+            <li ng-repeat="onetask in tasks track by $index">
+              <input type="checkbox" ng-model="onetask.status">
+            <span contenteditable="false" ng-dblclick="contentEdit(onetask.taskMessage)" ng-keydown="enterAgain(onetask.taskMessage)" ng-model="onetask.taskMessage"
+                class="done-{{onetask.status}}"> {{onetask.taskMessage}}</span>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

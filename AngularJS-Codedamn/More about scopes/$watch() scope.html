@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular JS | $digest()</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body ng-app="mainApp" ng-controller="mainCtrl">
+    <input type="text" ng-model="myText"/>
+    {{myText}}
+     <p>You have update {{counter}} times </p>
+
+    <script>
+      var app = angular.module("mainApp",[]);
+      app.controller('mainCtrl', function($scope){
+        $scope.counter = -1;
+        $scope.$watch('myText', function(newValue,oldValue){
+            $scope.counter++;
+            if($scope.counter == 10){
+                alert("Congo!")
+            }
+        })
+      })
+    </script>
+</body>
+</html>
